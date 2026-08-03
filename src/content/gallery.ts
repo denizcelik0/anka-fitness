@@ -1,6 +1,3 @@
-import fs from "fs";
-import path from "path";
-
 export type GalleryItem = {
   id: string;
   src: string;
@@ -9,81 +6,26 @@ export type GalleryItem = {
   featured?: boolean;
 };
 
-const GALLERY_CAPTIONS = [
-  "Anka Fitness ağırlık alanı",
-  "Kardiyo ekipmanları ve koşu bantları",
-  "Modern fitness ve egzersiz ekipmanları",
-  "Serbest ağırlık bölgesi",
-  "Motivasyon dolu antrenman atmosferi",
-  "Fonksiyonel antrenman alanı",
-  "CrossFit ve güç geliştirme bölgesi",
-  "Grup antrenman ve pilates alanı",
-  "Esneklik ve mobilite alanı",
-  "Ferah soyunma ve dinlenme alanı",
-  "Salon genel görünümü ve ekipmanlar",
-  "Anka Fitness detay ve özel çalışma alanları",
-];
-
-const DEFAULT_ITEMS: GalleryItem[] = [
-  { id: "g01", src: "/images/hero.svg", alt: "Anka Fitness ağırlık alanı", featured: true },
-  { id: "g02", src: "/images/hero.svg", alt: "Kardiyo ekipmanları" },
-  { id: "g03", src: "/images/hero.svg", alt: "Modern fitness salonu" },
-  { id: "g04", src: "/images/hero.svg", alt: "Serbest ağırlık bölgesi", featured: true },
-];
-
-const VALID_EXTENSIONS = new Set([
-  ".jpg",
-  ".jpeg",
-  ".png",
-  ".webp",
-  ".svg",
-  ".avif",
-  ".gif",
-]);
+export const galleryItems: GalleryItem[] = [
+  { id: "g01", src: "/images/gallery/Screenshot 2026-08-03 120248.png", alt: "Anka Fitness ağırlık alanı", featured: true },
+  { id: "g02", src: "/images/gallery/Screenshot 2026-08-03 120255.png", alt: "Kardiyo ekipmanları ve koşu bantları" },
+  { id: "g03", src: "/images/gallery/Screenshot 2026-08-03 120303.png", alt: "Modern fitness ve egzersiz ekipmanları" },
+  { id: "g04", src: "/images/gallery/Screenshot 2026-08-03 120311.png", alt: "Serbest ağırlık bölgesi", featured: true },
+  { id: "g05", src: "/images/gallery/Screenshot 2026-08-03 120327.png", alt: "Motivasyon dolu antrenman atmosferi" },
+  { id: "g06", src: "/images/gallery/Screenshot 2026-08-03 120335.png", alt: "Fonksiyonel antrenman alanı" },
+  { id: "g07", src: "/images/gallery/Screenshot 2026-08-03 120340.png", alt: "CrossFit ve güç geliştirme bölgesi" },
+  { id: "g08", src: "/images/gallery/Screenshot 2026-08-03 120348.png", alt: "Grup antrenman ve pilates alanı", featured: true },
+  { id: "g09", src: "/images/gallery/Screenshot 2026-08-03 120356.png", alt: "Esneklik ve mobilite alanı" },
+  { id: "g10", src: "/images/gallery/Screenshot 2026-08-03 120402.png", alt: "Ferah soyunma ve dinlenme alanı" },
+  { id: "g11", src: "/images/gallery/Screenshot 2026-08-03 120409.png", alt: "Salon genel görünümü ve ekipmanlar" },
+  { id: "g12", src: "/images/gallery/Screenshot 2026-08-03 120420.png", alt: "Anka Fitness detay alanı", featured: true },
+  { id: "g13", src: "/images/gallery/Screenshot 2026-08-03 120426.png", alt: "Güç ve kondisyon alanı" },
+  { id: "g14", src: "/images/gallery/Screenshot 2026-08-03 120431.png", alt: "Kişisel antrenman bölgesi" },
+].map((item) => ({
+  ...item,
+  src: encodeURI(item.src),
+}));
 
 export function getGalleryItems(): GalleryItem[] {
-  try {
-    const dirPath = path.join(process.cwd(), "public", "images", "gallery");
-    if (!fs.existsSync(dirPath)) {
-      return DEFAULT_ITEMS;
-    }
-
-    const files = fs.readdirSync(dirPath);
-    const validFiles = files.filter((file) => {
-      if (file.startsWith(".")) return false;
-      const ext = path.extname(file).toLowerCase();
-      return VALID_EXTENSIONS.has(ext);
-    });
-
-    if (validFiles.length === 0) {
-      return DEFAULT_ITEMS;
-    }
-
-    const realPhotos = validFiles.filter(
-      (file) => path.extname(file).toLowerCase() !== ".svg"
-    );
-
-    const displayFiles = realPhotos.length > 0 ? realPhotos : validFiles;
-
-    displayFiles.sort((a, b) =>
-      a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" })
-    );
-
-    return displayFiles.map((file, index) => {
-      const alt =
-        GALLERY_CAPTIONS[index % GALLERY_CAPTIONS.length] ||
-        `Anka Fitness Salon Görünümü ${index + 1}`;
-      const featured = index === 0 || index % 5 === 0;
-
-      return {
-        id: `g-${index}-${file}`,
-        src: encodeURI(`/images/gallery/${file}`),
-        alt,
-        featured,
-      };
-    });
-  } catch (error) {
-    console.error("Error reading gallery images:", error);
-    return DEFAULT_ITEMS;
-  }
+  return galleryItems;
 }
