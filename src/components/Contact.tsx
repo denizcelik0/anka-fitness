@@ -117,6 +117,9 @@ export function Contact() {
                 WhatsApp açıldı. Mesajını göndererek bize ulaşabilirsin.
               </p>
             )}
+            <p className="pt-2 text-center text-[11px] leading-relaxed text-muted/70">
+              🔒 6698 sayılı KVKK uyarınca; kişisel verileriniz yalnızca iletişim talebinize yanıt vermek amacıyla işlenmektedir.
+            </p>
           </form>
         </Reveal>
       </div>
