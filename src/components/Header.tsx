@@ -1,11 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { site } from "@/lib/site";
 
 const links = [
+  { href: "#imkanlar", label: "İmkanlar" },
   { href: "#paketler", label: "Paketler" },
-  { href: "#egitmenler", label: "Eğitmenler" },
+  { href: "#egitmenler", label: "Antrenörler" },
   { href: "#galeri", label: "Galeri" },
   { href: "#konum", label: "Konum" },
   { href: "#iletisim", label: "İletişim" },
@@ -38,9 +40,20 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 md:h-20 md:px-8">
-        <a href="#anasayfa" className="group relative z-50 font-display text-xl tracking-[0.12em] md:text-2xl">
-          <span className="text-fg">ANKA</span>
-          <span className="text-red"> FITNESS</span>
+        <a href="#anasayfa" className="group relative z-50 flex items-center gap-3">
+          <div className="relative h-9 w-9 overflow-hidden md:h-11 md:w-11">
+            <Image
+              src="/images/logo.png"
+              alt="Anka Fitness Logo"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
+          <span className="font-display text-xl tracking-[0.12em] md:text-2xl">
+            <span className="text-fg">ANKA</span>
+            <span className="text-red"> FITNESS</span>
+          </span>
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1600" viewBox="0 0 2400 1600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080808"/>
+      <stop offset="55%" stop-color="#120608"/>
+      <stop offset="100%" stop-color="#050505"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="80%" cy="20%" r="50%">
+      <stop offset="0%" stop-color="#e11d2e" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#e11d2e" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="2400" height="1600" fill="url(#bg)"/>
+  <rect width="2400" height="1600" fill="url(#glow)"/>
+  <rect x="120" y="120" width="2160" height="1360" fill="none" stroke="#e11d2e" stroke-opacity="0.2" stroke-width="2"/>
+  <text x="1200" y="760" text-anchor="middle" fill="#f5f5f5" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="700" letter-spacing="12">ANKA FITNESS</text>
+  <text x="1200" y="840" text-anchor="middle" fill="#a3a3a3" font-family="Arial, Helvetica, sans-serif" font-size="28" letter-spacing="6">HERO GÖRSEL0 · /images/hero.jpg ile dei_tirin</text>
+</svg>

@@ -15,18 +15,34 @@ export function Reveal({ children, className = "", delay }: RevealProps) {
     const node = ref.current;
     if (!node) return;
 
+    if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
+      node.classList.add("is-visible");
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting || entry.intersectionRatio > 0) {
           node.classList.add("is-visible");
           observer.unobserve(node);
         }
       },
-      { threshold: 0.16, rootMargin: "0px 0px -8% 0px" },
+      { threshold: 0, rootMargin: "0px 0px 100px 0px" },
     );
 
     observer.observe(node);
-    return () => observer.disconnect();
+
+    // Fail-safe fallback timer so content is never hidden if observer is delayed
+    const timer = setTimeout(() => {
+      if (node) {
+        node.classList.add("is-visible");
+      }
+    }, 400);
+
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+    };
   }, []);
 
   const delayClass = delay ? `reveal-delay-${delay}` : "";

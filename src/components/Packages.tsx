@@ -11,7 +11,7 @@ export function Packages() {
             Paketler
           </h2>
           <p className="mt-4 max-w-xl text-muted">
-            Hedefine ve tempoına uygun üyelik seç. Tüm paketlerde salona tam erişim.
+            Hedefine ve tempona uygun üyelik seç. Tüm paketlerde salona tam erişim.
           </p>
         </Reveal>
 

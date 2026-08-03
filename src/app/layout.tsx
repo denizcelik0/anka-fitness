@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Outfit, Syne } from "next/font/google";
+import { site } from "@/lib/site";
 import "./globals.css";
 
 const syne = Syne({
@@ -48,7 +49,7 @@ export const metadata: Metadata = {
       "Premium ekipman, uzman eğitmenler ve sonuç odaklı antrenman. Erenler, Sakarya.",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80",
+        url: site.ogImage,
         width: 1200,
         height: 630,
         alt: "Anka Fitness",
@@ -86,10 +87,9 @@ export default function RootLayout({
     name: "Anka Fitness",
     description:
       "Sakarya Erenler'de premium fitness salonu. Modern ekipman ve uzman eğitmenler.",
-    telephone: "+905056673798",
+    telephone: ["+905325044215", "+905056673798"],
     url: siteUrl,
-    image:
-      "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80",
+    image: site.ogImage,
     address: {
       "@type": "PostalAddress",
       streetAddress: "Şht. İlhan Aras Cd. No:60 kat.1",

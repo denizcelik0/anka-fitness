@@ -43,10 +43,15 @@ export function Contact() {
             bilgisi için buradayız.
           </p>
 
-          <div className="mt-10 space-y-5 text-sm">
-            <a href={site.phoneHref} className="block text-fg transition hover:text-red">
-              {site.phone}
-            </a>
+          <div className="mt-10 space-y-4 text-sm">
+            <div className="space-y-1.5">
+              <a href={site.phoneHref} className="block font-medium text-fg transition hover:text-red">
+                {site.phone}
+              </a>
+              <a href={site.phone2Href} className="block text-muted transition hover:text-red">
+                {site.phone2}
+              </a>
+            </div>
             <a
               href={site.instagramUrl}
               target="_blank"

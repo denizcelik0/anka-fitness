@@ -9,15 +9,15 @@ export function Hero() {
     >
       <div className="absolute inset-0 animate-hero-bg">
         <Image
-          src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=2400&q=80"
+          src="/images/background.png"
           alt="Anka Fitness salon atmosferi"
           fill
           priority
-          className="object-cover object-center"
+          className="object-cover object-center brightness-90 transition duration-1000 scale-105"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,5,5,0.55)_0%,rgba(5,5,5,0.35)_40%,rgba(5,5,5,0.92)_100%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(225,29,46,0.28),transparent_55%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,5,5,0.65)_0%,rgba(5,5,5,0.4)_40%,rgba(5,5,5,0.95)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(225,29,46,0.32),transparent_60%)]" />
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 pb-16 pt-32 md:px-8 md:pb-24">
